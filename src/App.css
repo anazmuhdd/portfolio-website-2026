@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background-color: #d5d2da;
 }
 
 .noise-background {
@@ -26,9 +27,62 @@
   pointer-events: none;
 }
 
-.welcome-text {
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   pointer-events: auto;
-  font-size: 100px;
-  font-weight: 700;
-  line-height: 1.2;
+}
+
+.welcome-text {
+  font-size: 3.5rem;
+  font-weight: 200;
+  line-height: 1.1;
+  color: #000;
+}
+
+.description-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.description-text p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s cubic-bezier(0.23, 1, 0.32, 1), transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.description-text.fade-in-active p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.description-text.fade-in-active p:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.description-text.fade-in-active p:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.description-text.fade-in-active p:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
