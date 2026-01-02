@@ -1,0 +1,51 @@
+.navbar-container {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    pointer-events: none;
+    /* Container itself shouldn't block noise background interaction */
+}
+
+.glass-navbar {
+    pointer-events: auto;
+    /* Re-enable clicks for the nav bar */
+    display: flex;
+    gap: 3rem;
+    padding: 0.8rem 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    /* More transparent 'clear' effect */
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    border-radius: 50px;
+    /* Cylindrical capsule shape */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.glass-navbar:hover {
+    background: rgba(255, 255, 255, 0.08);
+    /* Slightly more visible on hover but still clear */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.08);
+}
+
+.nav-link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: #000000;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: -0.03em;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.6;
+}

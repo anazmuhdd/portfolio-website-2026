@@ -1,11 +1,13 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Geist Mono', monospace;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.03em;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #000000;
+  color: #000000;
+  background-color: #d5d2da;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
