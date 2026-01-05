@@ -21,8 +21,11 @@ const TextType = ({
     textColors = [],
     variableSpeed,
     onSentenceComplete,
+    onTypingComplete,
+    onAllDone,
     startOnVisible = false,
     reverseMode = false,
+    deleteLast = false,
     ...props
 }) => {
     const [displayedText, setDisplayedText] = useState('');
@@ -88,7 +91,9 @@ const TextType = ({
             if (isDeleting) {
                 if (displayedText === '') {
                     setIsDeleting(false);
+
                     if (currentTextIndex === textArray.length - 1 && !loop) {
+                        if (onAllDone) onAllDone();
                         return;
                     }
 
@@ -114,7 +119,11 @@ const TextType = ({
                         variableSpeed ? getRandomSpeed() : typingSpeed
                     );
                 } else if (textArray.length >= 1) {
-                    if (!loop && currentTextIndex === textArray.length - 1) {
+                    if (onTypingComplete) {
+                        onTypingComplete(textArray[currentTextIndex], currentTextIndex);
+                    }
+
+                    if (!loop && currentTextIndex === textArray.length - 1 && !deleteLast) {
                         if (onSentenceComplete) {
                             onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
                         }
@@ -149,7 +158,10 @@ const TextType = ({
         isVisible,
         reverseMode,
         variableSpeed,
-        onSentenceComplete
+        onSentenceComplete,
+        onTypingComplete,
+        onAllDone,
+        deleteLast
     ]);
 
     const shouldHideCursor =
