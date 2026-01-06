@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 16px;
-    padding: 0 10%;
+    padding: 0 0 0 var(--page-margin-left);
     pointer-events: none;
     z-index: 1000;
 }

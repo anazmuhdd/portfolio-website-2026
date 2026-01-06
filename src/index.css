@@ -4,7 +4,8 @@
   font-weight: 400;
   font-size: 18px;
   letter-spacing: -0.03em;
-
+  --page-margin-left: 10%;
+  --page-margin-right: 2%;
   color-scheme: light dark;
   color: #000000;
   background-color: #d5d2da;
